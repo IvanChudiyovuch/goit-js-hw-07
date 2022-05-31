@@ -10,7 +10,15 @@ galleryContainer.addEventListener('click', onGalleryContainerClick);
 function onGalleryContainerClick(event) {
   event.preventDefault();
 
-  console.log('click');
+  const linkImg = event.target.dataset.source;
+
+  const instance = basicLightbox.create(
+    `
+          <img src="${linkImg}" width="800" height="600">
+      `
+  );
+
+  instance.show();
 }
 
 function createGalleryCardMarkUp(galleryItems) {
@@ -31,7 +39,3 @@ function createGalleryCardMarkUp(galleryItems) {
     })
     .join('');
 }
-
-// console.log(createGalleryCardMarkUp(galleryItems));
-
-// console.log(galleryItems);
